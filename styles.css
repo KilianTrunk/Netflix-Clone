@@ -1,0 +1,99 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.centerclass {
+  align-items: center;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+div.row {
+  margin: 0;
+}
+
+/* navigation-bar */
+.navigation-bar {
+  background-color: black;
+  color: white;
+  padding: 25px;
+}
+
+a.navbar-item:link, a.navbar-item:visited {
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+a.navbar-item:hover, a.navbar-item:active {
+  color: #CDCDCD;
+  text-decoration: none;
+  font-size: 26px;
+}
+
+a.navbar-lupa:link, a.navbar-lupa:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a.navbar-lupa:hover, a.navbar-lupa:active {
+  color: #CDCDCD;
+  text-decoration: none;
+}
+
+/* featured-movie-items */
+.main-part {
+  color: white;
+  padding-top: 40px;
+  background-size: cover;
+  background-image: url(https://occ-0-1068-1723.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABXq_vQJf0hxGmUQqHnb8nXwpz8iEmzC2upISv1MYxfE2kXO-IouDyL-TuAAkSqEn-iPui5s3ax8In2XqquIQkQ7L7csL.jpg?r=a42);
+}
+
+.featured-movie-items {
+  padding-left: 40px;
+  padding-bottom: 40px;
+}
+
+.icon {
+  padding-right: 4px;
+}
+
+button.button {
+  padding: 12px 40px;
+  margin: 5px;
+}
+
+.main-featured-movie-text-div {
+  text-align: center;
+}
+
+.main-featured-movie-text {
+  font-size: 110px;
+  font-weight: bold;
+  line-height: 90%;
+}
+
+.side-featured-movie-text {
+  font-size: 25px;
+}
+
+.n-logo {
+  max-height: 40px;
+  max-width: 25px;
+}
+
+/* popular-on-netflix */
+.popular-text{
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+/* slider */
+.slider {
+  padding: 10px 40px 20px;
+}
