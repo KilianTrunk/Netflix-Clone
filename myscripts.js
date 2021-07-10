@@ -9,7 +9,8 @@ async function getMovieData() {
 
   const overview = document.querySelector('#overviewText');
   overview.innerHTML = json.overview;
-}
 
+  document.getElementById("main-part").style.backgroundImage = "url('https://image.tmdb.org/t/p/original/"+json.backdrop_path+"')";
+}
 
 getMovieData();
