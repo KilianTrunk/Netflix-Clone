@@ -4,6 +4,8 @@ async function getMovieData() {
   const response = await fetch(API_URL);
   const json = await response.json();
 
+  // index.html START
+
   const title = document.querySelector('#originalTitle');
   title.innerHTML = json.original_title;
 
@@ -11,6 +13,10 @@ async function getMovieData() {
   overview.innerHTML = json.overview;
 
   document.getElementById("main-part").style.backgroundImage = "url('https://image.tmdb.org/t/p/original/"+json.backdrop_path+"')";
+
+  // index.html END
+
+  console.log(json);
 }
 
 getMovieData();
