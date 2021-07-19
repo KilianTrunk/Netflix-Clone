@@ -103,3 +103,8 @@ button.button {
   color: white;
   padding: 30px 35px 350px;
 }
+
+/* MYLIST.HTML */
+.ListOfMovies {
+  padding: 30px 35px 350px;
+}

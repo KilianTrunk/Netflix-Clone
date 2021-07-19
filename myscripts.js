@@ -26,6 +26,16 @@ async function getMovieData() {
   document.getElementById("img8").src = "https://image.tmdb.org/t/p/original/"+json.results[8].backdrop_path+" ";
   document.getElementById("img9").src = "https://image.tmdb.org/t/p/original/"+json.results[9].backdrop_path+" ";
 
+  document.getElementById("slider-img-1").href="fullmovie.html?movieid="+json.results[1].id+" ";
+  document.getElementById("slider-img-2").href="fullmovie.html?movieid="+json.results[2].id+" ";
+  document.getElementById("slider-img-3").href="fullmovie.html?movieid="+json.results[3].id+" ";
+  document.getElementById("slider-img-4").href="fullmovie.html?movieid="+json.results[4].id+" ";
+  document.getElementById("slider-img-5").href="fullmovie.html?movieid="+json.results[5].id+" ";
+  document.getElementById("slider-img-6").href="fullmovie.html?movieid="+json.results[6].id+" ";
+  document.getElementById("slider-img-7").href="fullmovie.html?movieid="+json.results[7].id+" ";
+  document.getElementById("slider-img-8").href="fullmovie.html?movieid="+json.results[8].id+" ";
+  document.getElementById("slider-img-9").href="fullmovie.html?movieid="+json.results[9].id+" ";
+
   console.log(json);
 }
 
