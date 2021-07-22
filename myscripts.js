@@ -1,9 +1,9 @@
 var API_URL = 'https://api.themoviedb.org/3/trending/movie/day?api_key=b0d1306fad90411efb79cc7bced5c6f2';
+document.getElementById("myListButton2").style.display = "none";
 
 async function getMovieData() {
   const response = await fetch(API_URL);
   const json = await response.json();
-
   var movieID = json.results[0].id;
 
   const title = document.querySelector('#originalTitle');
@@ -12,31 +12,51 @@ async function getMovieData() {
   const overview = document.querySelector('#overviewText');
   overview.innerHTML = json.results[0].overview;
 
-  document.getElementById("main-part").style.backgroundImage = "url('https://image.tmdb.org/t/p/original/"+json.results[0].backdrop_path+"')";
+  document.getElementById("main-part").style.backgroundImage = "url('https://image.tmdb.org/t/p/original/" + json.results[0].backdrop_path + "')";
 
-  document.getElementById("fullMovieButton").href="fullmovie.html?movieid="+movieID+" ";
+  document.getElementById("fullMovieButton").href = "fullmovie.html?movieid=" + movieID + " ";
 
-  document.getElementById("img1").src = "https://image.tmdb.org/t/p/original/"+json.results[1].backdrop_path+" ";
-  document.getElementById("img2").src = "https://image.tmdb.org/t/p/original/"+json.results[2].backdrop_path+" ";
-  document.getElementById("img3").src = "https://image.tmdb.org/t/p/original/"+json.results[3].backdrop_path+" ";
-  document.getElementById("img4").src = "https://image.tmdb.org/t/p/original/"+json.results[4].backdrop_path+" ";
-  document.getElementById("img5").src = "https://image.tmdb.org/t/p/original/"+json.results[5].backdrop_path+" ";
-  document.getElementById("img6").src = "https://image.tmdb.org/t/p/original/"+json.results[6].backdrop_path+" ";
-  document.getElementById("img7").src = "https://image.tmdb.org/t/p/original/"+json.results[7].backdrop_path+" ";
-  document.getElementById("img8").src = "https://image.tmdb.org/t/p/original/"+json.results[8].backdrop_path+" ";
-  document.getElementById("img9").src = "https://image.tmdb.org/t/p/original/"+json.results[9].backdrop_path+" ";
-
-  document.getElementById("slider-img-1").href="fullmovie.html?movieid="+json.results[1].id+" ";
-  document.getElementById("slider-img-2").href="fullmovie.html?movieid="+json.results[2].id+" ";
-  document.getElementById("slider-img-3").href="fullmovie.html?movieid="+json.results[3].id+" ";
-  document.getElementById("slider-img-4").href="fullmovie.html?movieid="+json.results[4].id+" ";
-  document.getElementById("slider-img-5").href="fullmovie.html?movieid="+json.results[5].id+" ";
-  document.getElementById("slider-img-6").href="fullmovie.html?movieid="+json.results[6].id+" ";
-  document.getElementById("slider-img-7").href="fullmovie.html?movieid="+json.results[7].id+" ";
-  document.getElementById("slider-img-8").href="fullmovie.html?movieid="+json.results[8].id+" ";
-  document.getElementById("slider-img-9").href="fullmovie.html?movieid="+json.results[9].id+" ";
+  json.results.forEach(function(value, index) {
+    var selector = 'img' + index;
+    var element = document.getElementById(selector);
+    if (element) {
+      element.src = "https://image.tmdb.org/t/p/original" + value.backdrop_path;
+      var hrefselector = 'slider-img-' + index;
+      document.getElementById(hrefselector).href = "fullmovie.html?movieid=" + value.id + " ";
+    }
+  });
 
   console.log(json);
+
 }
 
 getMovieData();
+
+async function saveMovieID() {
+  const response = await fetch(API_URL);
+  const json = await response.json();
+  var movieID = json.results[0].id;
+
+  var checkKey = localStorage.getItem("movieIDs");
+  console.log(checkKey);
+
+  if(checkKey == null)
+  {
+    localStorage.setItem("movieIDs", JSON.stringify(movieID));
+    console.log(1);
+  } else
+  {
+    localStorage.setItem("movieIDs", JSON.parse(checkKey));
+    checkKey = checkKey + ", " + localStorage.getItem("movieIDs");
+    localStorage.setItem("movieIDs", JSON.stringify(checkKey));
+    console.log(2);
+  }
+  document.getElementById("myListButton").style.display = "none";
+  document.getElementById("myListButton2").style.display = "inline-block";
+}
+
+async function removeMovieID() {
+  localStorage.removeItem("movieIDs", JSON.stringify("movieID"));
+  document.getElementById("myListButton2").style.display = "none";
+  document.getElementById("myListButton").style.display = "inline-block";
+}

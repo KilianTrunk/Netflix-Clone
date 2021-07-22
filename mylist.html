@@ -9,20 +9,8 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- JS -->
-  <script src="myscripts.js"></script>
-
-  <!-- Storage JS -->
-  <script src="storage.js"></script>
-
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/681a850abf.js" crossorigin="anonymous"></script>
-
-  <!-- Splide JS -->
-  <script src="splide.min.js"></script>
-
-  <!-- Splide CSS -->
-  <link rel="stylesheet" href="splide.min.css">
 
   <!-- Icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -65,20 +53,11 @@
     <!-- My List -->
 
     <div class="ListOfMovies">
-      <button  onclick="showMovieNames()" type="button" class="btn btn-secondary button btn-lg">Show Current List</button>
-      <p id="movieListElement1"></p>
-      <p id="movieListElement2"></p>
+      <a href="" id="movieListOfIDs"></a>
     </div>
 
-    <!-- Slider Script -->
-
-    <script>
-      new Splide('.splide', {
-        type: 'loop',
-        perPage: 3,
-        focus: 'center',
-      }).mount();
-    </script>
+    <!-- JS -->
+    <script src="mylistscript.js"></script>
 
     <!-- Popper and Bootstrap JS -->
 

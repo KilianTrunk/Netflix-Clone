@@ -9,17 +9,8 @@
   <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- JS -->
-  <script src="myscripts.js"></script>
-
-  <!-- Storage JS -->
-  <script src="storage.js"></script>
-
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/681a850abf.js" crossorigin="anonymous"></script>
-
-  <!-- Splide JS -->
-  <script src="splide.min.js"></script>
 
   <!-- Splide CSS -->
   <link rel="stylesheet" href="splide.min.css">
@@ -42,22 +33,22 @@
     <div class="navigation-bar">
       <div class="row">
         <div class="col-md-2 flex-container centerclass">
-          <a href="#"><img src="images/netflix-logo.png" alt="netflix-logo"></a>
+          <a href=""><img src="images/netflix-logo.png" alt="netflix-logo"></a>
         </div>
         <div class="col-md-1 flex-container centerclass">
-          <a href="#" class="navbar-item">TV Shows</a>
+          <a href="" class="navbar-item">TV Shows</a>
         </div>
         <div class="col-md-1 flex-container centerclass">
-          <a href="#" class="navbar-item">Movies</a>
+          <a href="" class="navbar-item">Movies</a>
         </div>
         <div class="col-md-2 flex-container centerclass">
-          <a href="#" class="navbar-item">Recently Added</a>
+          <a href="" class="navbar-item">Recently Added</a>
         </div>
         <div class="col-md-1 flex-container centerclass">
           <a href="mylist.html" class="navbar-item">My List</a>
         </div>
         <div class="col-md-1 offset-md-4 flex-container centerclass">
-          <a href="#" class="navbar-lupa"><i class="fas fa-search fa-2x"></i></a>
+          <a href="" class="navbar-lupa"><i class="fas fa-search fa-2x"></i></a>
         </div>
       </div>
     </div>
@@ -81,7 +72,8 @@
             </div>
             <div class="buttons">
               <a href="fullmovie.html" id="fullMovieButton"><button type="button" class="btn btn-light button btn-lg"><i class="fas fa-play icon"></i>Play</button></a>
-              <button id="myListButton" onclick="saveFeaturedMovieName()" type="button" class="btn btn-secondary button btn-lg"><i class="fas fa-plus icon"></i>My List</button>
+              <button id="myListButton" onclick="saveMovieID()" type="button" class="btn btn-secondary button btn-lg"><i class="fas fa-plus icon"></i>My List</button>
+              <button id="myListButton2" onclick="removeMovieID()" type="button" onclick="removeMovieID()" class="btn btn-secondary button btn-lg"><i class="fas fa-minus icon"></i> Remove from my list</button>
             </div>
           </div>
 
@@ -96,55 +88,41 @@
         </div>
       </div>
 
-      <!-- SLIDER -->
-      <!--
-      <a href="#" id="slider-img-1"></a>
-      <a href="#" id="slider-img-2"></a>
-      <a href="#" id="slider-img-3"></a>
-      <a href="#" id="slider-img-4"></a>
-      <a href="#" id="slider-img-5"></a>
-      <a href="#" id="slider-img-6"></a>
-      <a href="#" id="slider-img-7"></a>
-      <a href="#" id="slider-img-8"></a>
-      <a href="#" id="slider-img-9"></a>
-
-      -->
-
       <div class="slider">
         <div class="splide">
           <div class="splide__track">
             <ul class="splide__list">
-              <li class="splide__slide"> <a href="#" id="slider-img-1"> <img id="img1"
+              <li class="splide__slide"> <a href="#" id="slider-img-1"> <img id="img1" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABRGMg5XSYsu3BldsyNpMRgqWgenZrg2RRz8nbTI4Oj76JBMowQr-xSmGSrW5B-RWDTgOKaHijiquAbdi4Id0EAWUf_9pzjBAy-ZupPk9EtFBf4NUUZ8miYe8JnUl.jpg?r=714" alt="">
                 </a>
               </li>
-              <li class="splide__slide"> <a href="#" id="slider-img-2"> <img id="img2"
+              <li class="splide__slide"> <a href="#" id="slider-img-2"> <img id="img2" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTYKM4MrAmkYQlicL7sF6Cl3Dcm5mSmFxWAWAnsvyA_9XIVEQqVD_QjHkXqxqEMMzFXTibHX3SlICByq2Zm1f2wJoueisirsooXVG_2JxexwwtxW1mwD4iWhKpMbpgciUUfVw5SN6Vhlle41_Ap6RTQ3FtV8Hg.jpg?r=c93"
                     alt=""> </a> </li>
-              <li class="splide__slide"> <a href="#" id="slider-img-3"> <img id="img3"
+              <li class="splide__slide"> <a href="#" id="slider-img-3"> <img id="img3" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSIveZZlnOhfDnhLQzV9dSpkQZGxZpo8XyL-zvMurmkBXQGVLHSdi5ceEEg1jKFsvrZbUMYsRTMrSkqXFgPzOLMOSv_FbQZKRzDxB3GxxDlnrP-iqwDU3Idl6bSx.jpg?r=a0a" alt="">
                 </a>
               </li>
-              <li class="splide__slide"> <a href="#" id="slider-img-4"> <img id="img4"
+              <li class="splide__slide"> <a href="#" id="slider-img-4"> <img id="img4" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABXMHsJCyHKyf3X3oEmYczFvXsgIiNdSK2bMf3pXy17SGgjGp_Utp8F4BRP-ui192RsgKQxZCzvkGVuI2N7Z0Rgh5a48_HMeLuEAc1TDK-8PjJBLwLlDAmAEwMlYX.jpg?r=da1" alt="">
                 </a>
               </li>
-              <li class="splide__slide"> <a href="#" id="slider-img-5"> <img id="img5"
+              <li class="splide__slide"> <a href="#" id="slider-img-5"> <img id="img5" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABRtxvyXI2iijj2FY9eL1pxxyKPTPwJOtKJvPtR6sro_BQNV3qzB7Rk1b4HHDe4hil4ZfA9o3p5F2XCLsWeZ1PG69B3Ji2jqEDPrvBb4ErZkTJ3QoOEljzFosqQ3p.jpg?r=948" alt="">
                 </a>
               </li>
-              <li class="splide__slide"> <a href="#" id="slider-img-6"> <img id="img6"
+              <li class="splide__slide"> <a href="#" id="slider-img-6"> <img id="img6" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABa-oTyIxZjZX2RV59zIXh0I_NOJB16m7Iky-RTZ9jqavv58JOO4FcsoW_WH_vKdt9Cu8ZIZxDmDqb6FvEk6zj2aMp-GajzsrK9qJcFKdVZ7oNofBA9redABpGuwb.jpg?r=973" alt="">
                 </a>
               </li>
-              <li class="splide__slide"> <a href="#" id="slider-img-7"> <img id="img7"
+              <li class="splide__slide"> <a href="#" id="slider-img-7"> <img id="img7" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABZjUOmlpHkI5FSrsiokNAutY77X37LmQWZ9Fic1GnAr37eA_3L0JHRTsSZYkNr7Tv_6BbsAS6Vqv27a-QgYEmXp3ep7KDdvSSW9U2XTMUf_2FZPRFyw7zyi_yIgp0k_L-GVpDZIkVH9rvjGOZ6J9eiZdYns65Q.jpg?r=c53"
                     alt=""> </li> </a>
-              <li class="splide__slide"> <a href="#" id="slider-img-8"> <img id="img8"
+              <li class="splide__slide"> <a href="#" id="slider-img-8"> <img id="img8" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcLYt7JGiEU0JbFu0sz8yhX_wpUSf2cU0ZE3vfhRnPPPwoTh0y2xGN2b0ypY74NtdQR-46hbAEaZ_JFrtoL-ms2f0iyiTJ5zyb-5WLSNtbKCZWPVSRaUWUJkn9Oi.jpg?r=f6f" alt="">
                 </a>
               </li>
-              <li class="splide__slide"> <a href="#" id="slider-img-9"> <img id="img9"
+              <li class="splide__slide"> <a href="#" id="slider-img-9"> <img id="img9" class="sliderItem"
                     src="https://occ-0-4973-1490.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQ2tYAHnIf7SJ5WnCRWGJIq91VvN4J1ShE4skAQU-brdUKhPNq0NM9u8C0df2lAWKAwO1R8eU6dkrnN2Phbj9Dx6ixD4K1GIpZPUKBjLXkXKKCxpptazAEb_4rqs.jpg?r=c09" alt="">
                 </a>
               </li>
@@ -156,6 +134,12 @@
     </div>
 
   </div>
+
+  <!-- JS -->
+  <script src="myscripts.js"></script>
+
+  <!-- Splide JS -->
+  <script src="splide.min.js"></script>
 
   <!-- Slider Script -->
 
