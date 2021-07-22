@@ -7,8 +7,6 @@ async function getMovieData() {
   const response = await fetch(API_URL);
   const json = await response.json();
 
-  console.log(json);
-
   let params = currentPageUrl.searchParams;
   var movieID = params.get('movieid');
 
@@ -33,6 +31,7 @@ async function getMovieData() {
     const response = await fetch(API_URL);
     const json = await response.json();
     data = json;
+    console.log(json);
   }
 
   movieTitle.innerHTML = data.original_title;
@@ -55,21 +54,30 @@ async function saveMovieID() {
   const response = await fetch(API_URL);
   const json = await response.json();
   var movieID = json.id;
+  var movieName = json.original_title;
+  console.log(movieName);
 
   var checkKey = localStorage.getItem("movieIDs");
   console.log(checkKey);
 
-  if(checkKey == null)
+  var checkName = localStorage.getItem("movieNames");
+
+  if(checkKey == null && checkName == null)
   {
     localStorage.setItem("movieIDs", JSON.stringify(movieID));
+    localStorage.setItem("movieNames", JSON.stringify(movieName));
     console.log(1);
   } else
   {
     localStorage.setItem("movieIDs", JSON.parse(checkKey));
     checkKey = movieID + ", " + localStorage.getItem("movieIDs");
     localStorage.setItem("movieIDs", JSON.stringify(checkKey));
+    localStorage.setItem("movieNames", JSON.parse(checkName));
+    checkName = movieName + ", " + localStorage.getItem("movieNames");
+    localStorage.setItem("movieNames", JSON.stringify(checkName));
     console.log(2);
   }
+
   document.getElementById("myListButton").style.display = "none";
   document.getElementById("myListButton2").style.display = "inline-block";
 }
@@ -81,7 +89,9 @@ async function removeMovieID() {
   const response = await fetch(API_URL);
   const json = await response.json();
   var movieID = json.id;
-  localStorage.removeItem("movieIDs", JSON.stringify("movieID"));
+  var movieName = json.original_title;
+  localStorage.removeItem("movieIDs", JSON.stringify(movieID));
+  localStorage.removeItem("movieNames", JSON.stringify(movieName));
   document.getElementById("myListButton2").style.display = "none";
   document.getElementById("myListButton").style.display = "inline-block";
 }

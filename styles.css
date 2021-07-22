@@ -105,6 +105,10 @@ button.button {
 }
 
 /* MYLIST.HTML */
-.ListOfMovies {
+.MyListContent {
   padding: 30px 35px 350px;
+}
+
+.button-div {
+  padding-bottom: 20px;
 }
