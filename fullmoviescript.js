@@ -70,10 +70,10 @@ async function saveMovieID() {
   } else
   {
     localStorage.setItem("movieIDs", JSON.parse(checkKey));
-    checkKey = movieID + ", " + localStorage.getItem("movieIDs");
+    checkKey = movieID + "<br>" + localStorage.getItem("movieIDs");
     localStorage.setItem("movieIDs", JSON.stringify(checkKey));
     localStorage.setItem("movieNames", JSON.parse(checkName));
-    checkName = movieName + ", " + localStorage.getItem("movieNames");
+    checkName = movieName + "<br>" + localStorage.getItem("movieNames");
     localStorage.setItem("movieNames", JSON.stringify(checkName));
     console.log(2);
   }
