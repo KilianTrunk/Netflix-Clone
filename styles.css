@@ -12,8 +12,12 @@ img {
   height: 100%;
 }
 
-div.row {
+body {
   margin: 0;
+}
+
+* {
+  font-family: "Segoe UI";
 }
 
 /* navigation-bar */
@@ -21,6 +25,35 @@ div.row {
   background-color: black;
   color: white;
   padding: 25px;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: max-content auto max-content;
+  grid-template-areas: "logo items lupa";
+  justify-items: stretch;
+  align-items: stretch;
+  column-gap: 20px
+}
+
+.navbar-logo {
+  grid-area: logo;
+  width: 160px;
+  padding-left: 12px;
+}
+
+.menus {
+  grid-area: items;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.menus * {
+  padding-left: 20px;
+}
+
+.navbar-lupa {
+  grid-area: lupa;
+  padding-right: 30px;
 }
 
 a.navbar-item:link, a.navbar-item:visited {
@@ -62,13 +95,37 @@ a.navbar-lupa:hover, a.navbar-lupa:active {
   padding-right: 4px;
 }
 
-button.button {
+.button {
   padding: 12px 40px;
-  margin: 5px;
+  border-radius: 4px;
+  background: none;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
+.button-play {
+  background-color: white;
+  font-weight: bold;
+}
+
+.button-play:hover {
+  background-color: #CDCDCD;
+}
+
+.button-list {
+  margin-left: 15px;
+  background-color: gray;
+  color: white;
+  font-weight: bold;
+}
+
+.button-list:hover {
+  background-color: #616161;
+}
 .main-featured-movie-text-div {
-  text-align: center;
+  text-align: left;
 }
 
 .main-featured-movie-text {
@@ -79,18 +136,20 @@ button.button {
 
 .side-featured-movie-text {
   font-size: 25px;
+  width: 50%;
 }
 
 .n-logo {
   max-height: 40px;
   max-width: 25px;
+  padding-left: 5px;
 }
 
 /* popular-on-netflix */
 .popular-text{
   font-size: 30px;
   font-weight: bold;
-  padding-left: 30px;
+  padding-left: 40px;
 }
 
 /* slider */
@@ -111,4 +170,25 @@ button.button {
 
 .button-div {
   padding-bottom: 20px;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 957px) {
+  .navigation-bar, .menus {
+    display: block;
+  }
+  .menus * {
+    padding: 0;
+  }
+  .navbar-lupa {
+    margin-top: 10px;
+    padding: 0;
+  }
+  .navbar-logo {
+    width: 100%;
+    padding: 0;
+  }
+  .side-featured-movie-text {
+    width: 95%;
+  }
 }
