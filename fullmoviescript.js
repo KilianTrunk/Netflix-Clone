@@ -95,15 +95,8 @@ async function saveMovieID() {
 }
 
 async function removeMovieID() {
-  let params = currentPageUrl.searchParams;
-  var movieID = params.get('movieid');
-  API_URL = 'https://api.themoviedb.org/3/movie/' + movieID + '?api_key=b0d1306fad90411efb79cc7bced5c6f2';
-  const response = await fetch(API_URL);
-  const json = await response.json();
-  var movieID = json.id;
-  var movieName = json.original_title;
-  localStorage.removeItem("movieIDs", JSON.stringify(movieID));
-  localStorage.removeItem("movieNames", JSON.stringify(movieName));
+  localStorage.removeItem('movieIDs');
+  localStorage.removeItem('movieNames');
   document.getElementById("myListButton2").style.display = "none";
   document.getElementById("myListButton").style.display = "inline-block";
 }
