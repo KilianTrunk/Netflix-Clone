@@ -57,38 +57,47 @@ async function saveMovieID() {
   var movieName = json.original_title;
   console.log(movieName);
 
-  // KODA ZA SHRANJEVANJE - START
+  // ********************************************* KODA ZA SHRANJEVANJE - START *********************************************
 
-  var movieNAMEs = new Array();
-  var movieIDs = new Array();
 
-  if (localStorage['movieNames']) {
-    movieNAMEs = movieName + localStorage.getItem('movieNames');
-    var JSONReadyMovieNAMEs = JSON.stringify(movieNAMEs);
-    localStorage.setItem('movieNames', JSONReadyMovieNAMEs);
-    JSON.parse(localStorage['movieNames']);
-  }
-  else {
-    movieNAMEs.push(movieName);
-    var JSONReadyMovieNAMEs = JSON.stringify(movieNAMEs);
-    localStorage.setItem('movieNames', JSONReadyMovieNAMEs);
-    JSON.parse(localStorage['movieNames']);
+  // ***** ----- MOVIE Names ----- *****
+
+  // shramba podatkov
+  var movieNAMEs = movieName;
+
+  // če ni nič shranjeno, shrani prazen array
+  if (localStorage.getItem('movieNames') == null)
+  {
+    localStorage.setItem('movieNames', '[]')
   }
 
-  if (localStorage['movieIDs']) {
-    movieIDs = movieID + localStorage.getItem('movieIDs');
-    var JSONReadyMovieIDs = JSON.stringify(movieIDs);
-    localStorage.setItem('movieIDs', JSONReadyMovieIDs);
-    JSON.parse(localStorage['movieIDs']);
-  }
-  else {
-    movieIDs.push(movieID);
-    var JSONReadyMovieIDs = JSON.stringify(movieIDs);
-    localStorage.setItem('movieIDs', JSONReadyMovieIDs);
-    JSON.parse(localStorage['movieIDs']);
+  // če je kaj shranjeno, dodaj k novim podatkom
+  var old_movieNAMEs = JSON.parse(localStorage.getItem('movieNames'));
+  old_movieNAMEs.push(movieNAMEs);
+
+  // shrani podatke v localstorage
+  localStorage.setItem('movieNames', JSON.stringify(old_movieNAMEs));
+
+
+  // ***** ----- MOVIE IDs ----- *****
+
+  // shramba podatkov
+  var movieIDs = movieID;
+
+  // če ni nič shranjeno, shrani prazen array
+  if (localStorage.getItem('movieIDs') == null)
+  {
+    localStorage.setItem('movieIDs', '[]')
   }
 
-  // KODA ZA SHRANJEVANJE - END
+  // če je kaj shranjeno, dodaj k novim podatkom
+  var old_movieIDs = JSON.parse(localStorage.getItem('movieIDs'));
+  old_movieIDs.push(movieIDs);
+
+  // shrani podatke v localstorage
+  localStorage.setItem('movieIDs', JSON.stringify(old_movieIDs));
+
+  // ********************************************* KODA ZA SHRANJEVANJE - END ***********************************************
 
   document.getElementById("myListButton").style.display = "none";
   document.getElementById("myListButton2").style.display = "inline-block";
