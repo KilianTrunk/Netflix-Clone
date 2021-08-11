@@ -38,38 +38,46 @@ async function saveMovieID() {
   var movieID = json.results[0].id;
   var movieName = json.results[0].original_title;
 
-  var checkKey = localStorage.getItem("movieIDs");
-  console.log(checkKey);
+  // KODA ZA SHRANJEVANJE - START
 
-  var checkName = localStorage.getItem("movieNames");
+  var movieNAMEs = new Array();
+  var movieIDs = new Array();
 
-  if(checkKey == null && checkName == null)
-  {
-    localStorage.setItem("movieIDs", JSON.stringify(movieID));
-    localStorage.setItem("movieNames", JSON.stringify(movieName));
-    console.log(1);
-  } else
-  {
-    localStorage.setItem("movieIDs", JSON.parse(checkKey));
-    checkKey = movieID + "<br>" + localStorage.getItem("movieIDs");
-    localStorage.setItem("movieIDs", JSON.stringify(checkKey));
-    localStorage.setItem("movieNames", JSON.parse(checkName));
-    checkName = movieName + "<br>" + localStorage.getItem("movieNames");
-    localStorage.setItem("movieNames", JSON.stringify(checkName));
-    console.log(2);
+  if (localStorage['movieNames']) {
+    movieNAMEs = movieName + localStorage.getItem('movieNames');
+    var JSONReadyMovieNAMEs = JSON.stringify(movieNAMEs);
+    localStorage.setItem('movieNames', JSONReadyMovieNAMEs);
+    JSON.parse(localStorage['movieNames']);
   }
+  else {
+    movieNAMEs.push(movieName);
+    var JSONReadyMovieNAMEs = JSON.stringify(movieNAMEs);
+    localStorage.setItem('movieNames', JSONReadyMovieNAMEs);
+    JSON.parse(localStorage['movieNames']);
+  }
+
+  if (localStorage['movieIDs']) {
+    movieIDs = movieID + localStorage.getItem('movieIDs');
+    var JSONReadyMovieIDs = JSON.stringify(movieIDs);
+    localStorage.setItem('movieIDs', JSONReadyMovieIDs);
+    JSON.parse(localStorage['movieIDs']);
+  }
+  else {
+    movieIDs.push(movieID);
+    var JSONReadyMovieIDs = JSON.stringify(movieIDs);
+    localStorage.setItem('movieIDs', JSONReadyMovieIDs);
+    JSON.parse(localStorage['movieIDs']);
+  }
+
+  // KODA ZA SHRANJEVANJE - END
 
   document.getElementById("myListButton").style.display = "none";
   document.getElementById("myListButton2").style.display = "inline-block";
 }
 
 async function removeMovieID() {
-  const response = await fetch(API_URL);
-  const json = await response.json();
-  var movieID = json.results[0].id;
-  var movieName = json.results[0].original_title;
-  localStorage.removeItem("movieIDs", JSON.stringify(movieID));
-  localStorage.removeItem("movieNames", JSON.stringify(movieName));
+  localStorage.removeItem('movieIDs');
+  localStorage.removeItem('movieNames');
   document.getElementById("myListButton2").style.display = "none";
   document.getElementById("myListButton").style.display = "inline-block";
 }
