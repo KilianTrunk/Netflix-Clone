@@ -68,15 +68,13 @@ async function saveMovieID() {
   // če ni nič shranjeno, shrani prazen array
   if (localStorage.getItem('movieNames') == null)
   {
-    localStorage.setItem('movieNames', '[]')
+    localStorage.setItem('movieNames', '')
   }
 
-  // če je kaj shranjeno, dodaj k novim podatkom
-  var old_movieNAMEs = JSON.parse(localStorage.getItem('movieNames'));
-  old_movieNAMEs.push(movieNAMEs);
+
 
   // shrani podatke v localstorage
-  localStorage.setItem('movieNames', JSON.stringify(old_movieNAMEs));
+  localStorage.setItem('movieNames', movieName);
 
 
   // ***** ----- MOVIE IDs ----- *****
@@ -87,15 +85,11 @@ async function saveMovieID() {
   // če ni nič shranjeno, shrani prazen array
   if (localStorage.getItem('movieIDs') == null)
   {
-    localStorage.setItem('movieIDs', '[]')
+    localStorage.setItem('movieIDs', '')
   }
 
-  // če je kaj shranjeno, dodaj k novim podatkom
-  var old_movieIDs = JSON.parse(localStorage.getItem('movieIDs'));
-  old_movieIDs.push(movieIDs);
-
   // shrani podatke v localstorage
-  localStorage.setItem('movieIDs', JSON.stringify(old_movieIDs));
+  localStorage.setItem('movieIDs', movieID);
 
   // ********************************************* KODA ZA SHRANJEVANJE - END ***********************************************
 

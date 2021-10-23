@@ -18,7 +18,7 @@
   <title>Netflix Clone</title>
 </head>
 
-<body>
+<body class="mylist-body">
 
   <div class="landing-page">
 
@@ -54,8 +54,10 @@
         <button id="myListButton2" type="button" onclick="removeMovieData()" class="button button-list">Empty My List</button>
       </div>
       <div class="movieData">
-        <a href="" id="movieListOfNames"></a>
+        <a href="" id="movieListOfNames" class="navbar-item"></a>
+        <p id="savedState" class="stateText"></p>
       </div>
+      <p id="state" class="stateText"></p>
     </div>
 
     <!-- JS -->

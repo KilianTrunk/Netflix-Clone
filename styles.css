@@ -172,6 +172,16 @@ a.navbar-lupa:hover, a.navbar-lupa:active {
   padding-bottom: 20px;
 }
 
+.mylist-body {
+  background-color: black;
+}
+
+.stateText {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 /* RESPONSIVE */
 @media only screen and (max-width: 957px) {
   .navigation-bar, .menus {
